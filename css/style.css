@@ -1,0 +1,278 @@
+body {
+    background-color: #fbfbfb;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    z-index: 4;
+}
+
+.menu img {
+    margin: 20px;
+}
+
+
+#map {
+    width: 100vw;
+    height: 550px;
+    background-color: rgb(192, 151, 231);
+}
+
+.error {
+    background-color: rgb(195, 0, 49);
+    color: white;
+    font-size: 48px;.
+}
+
+.hide-error {
+    display: none;
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+}
+
+.navMenu {
+    position: absolute;
+    width: 90%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #FFEACE;
+    color:black;
+    z-index: 400;
+}
+
+.hiddenMenu {
+    display: none;
+}
+
+.close {
+    position: relative;
+    cursor: pointer;
+}
+
+.navMenu ul {
+    list-style: none;
+}
+
+.navMenu ul li {
+    font-size: 24px;
+    margin: 40px;
+}
+
+.navMenu img {
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.menuBox {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.hiddenLogo {
+    display: none;
+}
+
+.fake {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.marker {
+    display: flex;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #2A92BF;
+    border-radius: 20px;
+    color: #FFF;
+}
+
+.markerActive {
+    display: flex;
+    cursor: pointer;
+    width: 60px;
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 2px solid #2A92BF;
+}
+
+.marker:before {
+    content: attr(availability);
+    color: #FFF;
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-weight: 600;
+}
+
+.markerActive:before {
+    content: attr(availability);
+    color: #2A92BF;
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-weight: 600;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 96%;
+    margin: 0 2%;
+    gap: 10px;
+    position: absolute;
+    top: 180px;
+    z-index: 50;
+}
+
+.hiddenWeather {
+    display: none;
+}
+
+.card {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.card img {
+    height: 40px;
+    width: 40px;
+}
+
+.search {
+    width: 260px;
+    margin: 0 auto 10px auto;
+    background-color: #ECECEC;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+    border: 2px solid #ECECEC;
+    border-radius: 20px;
+}
+
+.search img {
+    height: 20px;
+    width: 20px;
+}
+
+.bikeContainer {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    position: absolute;
+    bottom: -50px;
+    z-index: 100;
+    width: 96%;
+    background-color: #FFF;
+    margin: 0 2%;
+    align-items: center;
+}
+
+.detailsHidden {
+    display: none;
+}
+
+.bikeContainer img {
+    height: fit-content;
+    width: fit-content;
+    margin: 15px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.walk {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.available-bikes {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.available-docks {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.avilability {
+    width: 90%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #1C7CA5;
+    color: white;
+    padding: 10px 17px 10px 17px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.popUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    z-index: 300;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+
+.popUpHide {
+    display: none;
+}

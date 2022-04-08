@@ -1,0 +1,70 @@
+/* logo */
+@font-face {
+    font-family: "Gloria";
+    src: url(/assets/font/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf);
+}
+
+/* heading */
+@font-face {
+    font-family: "Assistant";
+    src: url(/assets/font/Assistant/Assistant-VariableFont_wght.ttf);
+    font-weight: 400;
+}
+
+/* body */
+@font-face {
+    font-family: "Inter";
+    src: url(/assets/font/Inter/Inter-VariableFont_slnt\,wght.ttf);
+    font-weight: 400;
+}
+
+/* logo */
+h1 {
+    font-family: 'Gloria', Courier New, Courier, monospace;
+    font-size: 36px;
+    margin: 20px;
+}
+
+/* heading */
+h2 {
+    font-family: 'Assistant', Courier New, Courier, monospace;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+
+h3 {
+    font-family: 'Assistant', Courier New, Courier, monospace;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+h4 {
+    font-family: 'Assistant', Courier New, Courier, monospace;
+    font-size: 18px;
+    font-weight: 400;  
+    margin: 5px;  
+}
+
+/* body */
+p {
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+.p2, .p-temperature {
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.address {
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 10px;
+}
+
