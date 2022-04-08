@@ -3,8 +3,10 @@ import { showMenu } from './menu.js';
 showMenu();
 getWeather();
 
+// Map accessToken
 const mapbox_key = 'pk.eyJ1Ijoic29maWFza2EiLCJhIjoiY2wxYnYyZjZuMDFpbDNkczltZ3Ywd2Y0cSJ9.j8Bz11OkdDq2188Buy9dGw';
 
+// Hämta map
 async function getMap(){
     mapboxgl.accessToken = mapbox_key;
 
@@ -12,14 +14,14 @@ async function getMap(){
 
     const bikeStatus = await getStatus();
 
-
+    // Hämta lediga plasser
     const getAvailabilityDocks = id => {
         const currentStation = bikeStatus.filter(station => {
             return station.station_id === id
         });
         return currentStation[0].num_docks_available;
     }
-
+    // Hämta lediga sykkler
     const getAvailableBykes = id => {
         const currentStation = bikeStatus.filter(station => {
             return station.station_id === id
@@ -27,7 +29,7 @@ async function getMap(){
         return currentStation[0].num_bikes_available;
     }
 
-
+    // Hämta ut relevant data från API som jag vill bruke
     const featuresBikes = bikeStations.map(station => {
 
         return {
@@ -58,7 +60,8 @@ async function getMap(){
             zoom: 15, // starting zoom
         }
     );
-
+    
+    // Lage popUp , Zoom(flyTo), toggle, 
     geoStations.features.forEach(station => {
         const markerEl = document.createElement('div');
         const weatherEl = document.querySelector('.weather');
@@ -89,8 +92,6 @@ async function getMap(){
                 station.geometry.coordinates[0],
                 station.geometry.coordinates[1],
                 map
-                //new mapboxgl.Popup({ offset: 25 }).setText(
-                    //station.properties.station
             );
 
             popUp(
@@ -104,18 +105,14 @@ async function getMap(){
 
             });
 
-           //const el = document.createElement('div');
-            //el.id = 'marker';
-
         // Add markers to the map.
         new mapboxgl.Marker(markerEl)
         .setLngLat(station.geometry.coordinates)
         .addTo(map)
-        //.setPopup(popup);
     });
  };
 
-
+// lage funktionen for hva som skjer med popUp och vilken data som skal hentes
  function popUpMessage(station, address, bikes, docks, lat, lon, map) {
      const allMarkers = document.querySelectorAll('.marker');
      const weatherEl = document.querySelector('.weather');
@@ -157,18 +154,7 @@ async function getMap(){
  }
 
 
-/*async function getStations() {
-   // const url = 'https://data-legacy.urbansharing.com/legacy-api/stations.json';
-    const corsUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://data-legacy.urbansharing.com/legacy-api/stations.json')}`
-    const response = await fetch(corsUrl);
-    const result = await response.json();
-    const stations = JSON.parse(result.contents);
-    return stations.stations;
-
-}; */
-
 async function getStations() {
-    // const url = 'https://gbfs.urbansharing.com/oslobysykkel.no/station_information.json';
     // we need a proxy because the api is blocked from public access
     const corsUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://gbfs.urbansharing.com/oslobysykkel.no/station_information.json')}`
     const response = await fetch(corsUrl);
@@ -189,15 +175,6 @@ async function getStatus() {
 getMap();
 
 
-/* // Create a default Marker and add it to the map.
-const marker1 = new mapboxgl.Marker()
-.setLngLat([10.77, 59.92])
-.addTo(map);
- 
-// Create a default Marker, colored black, rotated 45 degrees.
-const marker2 = new mapboxgl.Marker({ color: 'black' })
-.setLngLat([10.76, 59.91])
-.addTo(map); */
 
 
 
