@@ -43,10 +43,25 @@ body {
     background-color: #FFEACE;
     color:black;
     z-index: 400;
+    animation-name: easeIn; 
+    animation-duration: 0.5s;
+   
 }
+
+@keyframes easeIn {
+    from {
+        transform: translate(-400px);
+    }
+    to {
+        transform: translate(0px);
+    }    
+}
+
 
 .hiddenMenu {
     display: none;
+    animation-name: ease-in-out;
+    animation-duration: 0.5s;
 }
 
 .close {
@@ -66,16 +81,23 @@ body {
 .navMenu img {
     margin-top: 30px;
     margin-left: 15px;
+    max-width: 90px;
 }
 
 .menuBox {
     display: flex;
     justify-content: space-between;
     width: 65%;
+    align-items: flex-start;
+
 }
 
 .hiddenLogo {
     display: none;
+}
+
+.logo {
+    max-width: 70px;
 }
 
 .fake {
@@ -137,7 +159,7 @@ body {
     margin: 0 2%;
     gap: 10px;
     position: absolute;
-    top: 180px;
+    top: 175px;
     z-index: 50;
 }
 
@@ -162,6 +184,15 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 10px;
+    margin-left: 5px;
+}
+
+#weather {
+    background-image: url("../assets/icons/weather/partlycloudy_day.jpg");
+    background-size: contain;
+    height: 50px;
+    width: 45px;
+    background-repeat: no-repeat;
 }
 
 .card img {
@@ -234,6 +265,14 @@ body {
     align-items: center;
 }
 
+.available-bikes img {
+    max-width: 30px;
+}
+
+.available-docks img {
+    max-width: 30px;
+}
+
 .available-docks {
     display: flex;
     flex-direction: row;
@@ -270,7 +309,11 @@ body {
     border-radius: 5px;
     box-shadow: 0px 4px 4px #b8b8b8;
     margin-top: 150px;
-    margin-left: 150px;
+    margin-left: 100px;
+}
+
+.popUp img {
+    max-width: 30px;
 }
 
 .popUpHide {

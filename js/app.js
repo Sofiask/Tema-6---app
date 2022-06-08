@@ -3,6 +3,31 @@ import { showMenu } from './menu.js';
 showMenu();
 getWeather();
 
+//registrere service worker
+const registerServiceWorker = async () => {
+    if ('serviceWorker' in navigator) {
+      try {
+        const registration = await navigator.serviceWorker.register(
+          '../sw.js',
+          {
+            scope: '/',
+          }
+        );
+        if (registration.installing) {
+          console.log('Service worker installing');
+        } else if (registration.waiting) {
+          console.log('Service worker installed');
+        } else if (registration.active) {
+          console.log('Service worker active');
+        }
+      } catch (error) {
+        console.error(`Registration failed with ${error}`);
+      }
+    }
+  };
+  registerServiceWorker(); //
+
+
 // Map accessToken
 const mapbox_key = 'pk.eyJ1Ijoic29maWFza2EiLCJhIjoiY2wxYnYyZjZuMDFpbDNkczltZ3Ywd2Y0cSJ9.j8Bz11OkdDq2188Buy9dGw';
 
@@ -29,7 +54,7 @@ async function getMap(){
         return currentStation[0].num_bikes_available;
     }
 
-    // Hämta ut relevant data från API som jag vill bruke
+    // Hämta ut relevant data från API som jag vill bruke i popup-message
     const featuresBikes = bikeStations.map(station => {
 
         return {
@@ -75,15 +100,17 @@ async function getMap(){
                 item.classList.remove('markerActive');
             });
 
+            // zoome in når marker blir klicket på
             map.flyTo({
                 center: [
                     station.geometry.coordinates[0],
                     station.geometry.coordinates[1]
                 ],
                 essential: true,
-                zoom: 16
+                zoom: 17
             });
 
+            //data i popup
             popUpMessage(
                 station.properties.station,
                 station.properties.address,
@@ -93,12 +120,12 @@ async function getMap(){
                 station.geometry.coordinates[1],
                 map
             );
-
+            
             popUp(
                 station.properties.station,
             );
 
-            // her skal jeg add en class til weather i html, trenger ikke å ha classen 
+            // her skal jeg add en class til weather i html, trenger ikke å ha classen fysiskt
             weatherEl.classList.add('hiddenWeather');
             markerEl.classList.add('markerActive');
             popupEl.classList.remove('popUpHide');
@@ -120,6 +147,7 @@ async function getMap(){
      const popupEl = document.querySelector('.popUp');
      const bikeContainerEl = document.querySelector('.bikeContainer');
      bikeContainerEl.classList.remove('detailsHidden');
+     //Lukke popup vindu
      const closeDetails = document.querySelector('.bikeContainer .top img');
      closeDetails.addEventListener('click', () => {
         allMarkers.forEach((item) => {
@@ -137,6 +165,7 @@ async function getMap(){
         });
 });
 
+    // legge data på riktig plass i popup-vindu
      const stationTitle = document.querySelector('.bikeContainer h2');
      stationTitle.textContent = station;
      const stationAddress = document.querySelector('.bikeContainer .address');
@@ -173,9 +202,3 @@ async function getStatus() {
 
 
 getMap();
-
-
-
-
-
-

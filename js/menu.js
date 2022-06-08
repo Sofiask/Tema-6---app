@@ -5,6 +5,7 @@ export function showMenu() {
     const logoEl = document.querySelector('.logo');
     const fakeEl = document.querySelector('.fake');
 
+    //legger inn block og hiddenLogo for att fjerne de på baksidan av menyen
     hamburgerEl.addEventListener('click', () => {
         navMenuEl.classList.toggle('hiddenMenu');
         logoEl.classList.toggle('hiddenLogo');

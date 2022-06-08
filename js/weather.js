@@ -16,11 +16,16 @@ export async function getWeather() {
     });
 
     const currentTemperature = currentIndex[0].data.instant.details.air_temperature;
-    //logger resultatet av koden
-    console.log(currentTemperature);
+    
 
     const temperaturElement = document.querySelector('.p-temperature');
     temperaturElement.textContent = currentTemperature;
+
+    // endrer vær ikon etter API navn 
+    const sky_situation = currentIndex[0].data.next_1_hours.summary.symbol_code;
+    const weather_cont = document.querySelector('#weather');
+
+    weather_cont.getElementsByClassName.backgroundImage = `url(../assets/icons/weather/${sky_situation}.jpg)`
 };
 
 // promise = await
